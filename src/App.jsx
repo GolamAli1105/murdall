@@ -169,6 +169,7 @@ function App() {
     }
 
     if (!validWords.includes(guessString.toLowerCase())) {
+      setMessage('Word not found...')
       setCleanerState({ active: true, targetRow: history.length, action: 'INVALID' })
       return
     }
