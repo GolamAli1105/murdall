@@ -56,6 +56,22 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
+                {/* Hearts / Health */}
+                <div className="flex flex-col gap-3 border-t border-dashed border-stone-800 pt-4">
+                    <h3 className="text-xl sm:text-2xl text-center font-nosifer text-red-600 drop-shadow-[0_0_5px_#b91c1c] tracking-widest">
+                        blood cost
+                    </h3>
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 flex items-center justify-center text-3xl animate-pulse">❤️</div>
+                        <div className="text-left text-sm sm:text-base text-stone-300">
+                            You start with <span className="font-bold text-red-500">10 HEARTS</span>. Every <span className="font-bold text-stone-500">DEAD GRAY</span> letter in a guess drains <span className="font-bold text-red-500">1 HEART</span>.
+                        </div>
+                    </div>
+                    <div className="text-center text-sm sm:text-base text-stone-400 italic">
+                        If you run out of hearts... the game ends.
+                    </div>
+                </div>
+
                 {/* Footer */}
                 <div className="mt-2 text-center">
                     <button
