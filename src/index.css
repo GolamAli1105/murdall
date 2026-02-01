@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Rubik+Glitch&display=swap');
+@import "tailwindcss";
+
+/* Global Full Screen Reset */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent scrolling */
+  background-color: #0d0208;
+}
+
+body {
+  font-family: 'Creepster', system-ui, sans-serif;
+  color: #e0e0e0;
+}
+
+/* Custom Utilities (Moved back from config for reliability) */
+.coffin-shape {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%);
+}
+
+.text-blood {
+  color: #ff0033;
+  animation: bloodPulse 3s infinite;
+}
+
+/* Animations */
+@keyframes ghostFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes graveSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bloodPulse {
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px #ff0000;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #ff0000;
+  }
+}
+
+/* Utility classes for animations */
+.animate-ghost {
+  animation: ghostFloat 4s ease-in-out infinite;
+}
+
+.animate-grave-enter {
+  animation: graveSlideIn 0.8s ease-out forwards;
+}
+
+/* Background Noise */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacit='0.1'/%3E%3C/svg%3E");
+  opacity: 0.02;
+}
+
+/* Stickman Animations */
+@keyframes legWalk {
+
+  0%,
+  100% {
+    transform: rotate(-20deg);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: rotate(20deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes legWalkAlt {
+
+  0%,
+  100% {
+    transform: rotate(20deg);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: rotate(-20deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes scytheAction {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  25% {
+    transform: rotate(-30deg) translate(-10px, 10px);
+  }
+
+  50% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  75% {
+    transform: rotate(-30deg) translate(-10px, 10px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+
+.animate-scythe-blade {
+  animation: scytheAction 0.5s ease-in-out infinite;
+  transform-origin: 90px 50px;
+}
+
+.animate-scythe-handle {
+  animation: scytheAction 0.5s ease-in-out infinite;
+  transform-origin: 90px 50px;
+}
+
+@keyframes armWalk {
+
+  0%,
+  100% {
+    transform: rotate(20deg);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: rotate(-20deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes armWalkAlt {
+
+  0%,
+  100% {
+    transform: rotate(-20deg);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: rotate(20deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes scrapeAction {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+  25% {
+    transform: rotate(-45deg) translateX(-5px);
+  }
+
+  50% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+  75% {
+    transform: rotate(-45deg) translateX(-5px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+.animate-leg-walk {
+  animation: legWalk 0.4s infinite linear;
+}
+
+.animate-leg-walk-alt {
+  animation: legWalkAlt 0.4s infinite linear;
+}
+
+.animate-arm-walk {
+  animation: armWalk 0.4s infinite linear;
+}
+
+.animate-arm-walk-alt {
+  animation: armWalkAlt 0.4s infinite linear;
+}
+
+.animate-arm-scrape {
+  transform: rotate(-45deg);
+  transform-origin: top;
+}
+
+.animate-arm-scrape-alt {
+  transform: rotate(-10deg);
+  transform-origin: top;
+}
+
+.animate-broom {
+  animation: scrapeAction 0.5s ease-in-out infinite;
+  transform-origin: center;
+}
